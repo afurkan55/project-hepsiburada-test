@@ -37,7 +37,7 @@ public class BaseTest {
 
     @After
     public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
+        TimeUnit.SECONDS.sleep(3);
         getDriver().quit();
     }
 

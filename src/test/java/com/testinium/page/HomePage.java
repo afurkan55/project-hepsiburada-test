@@ -11,22 +11,23 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import static com.testinium.constants.ConstantDemoPage.*;
+import static com.testinium.constants.ConstantLoginPage.*;
 
-public class DemoPage extends BasePage {
+public class HomePage extends BasePage {
 
-    public DemoPage(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
+    public LoginPage homePage()
+    {
+     getDriver().get("https://www.hepsiburada.com");
+     return getLoginPage();
+    }
+
+
     public void wakeUpChrome() throws InterruptedException {
-        String getAttr = getAttribute(SEARCH_BOX, "maxlength");
 
-        System.out.println("FIND ELEMENT ATTR :" + getAttr);
-
-        sendKeys(SEARCH_BOX, "Emre ORHAN");
-
-        findElement(SEARCH_BOX).submit();
 
         getDriver().navigate().back();
 
@@ -40,17 +41,12 @@ public class DemoPage extends BasePage {
     public void sendKeysTest() throws InterruptedException {
         //Assert.assertTrue("Element bulundu!!!", isElementDisplayed(SEARCH_BOX));
         getDriver().navigate().to("https://www.google.com.tr");
-        sendKeys(SEARCH_BOX, "Emre ORHAN");
-        TimeUnit.SECONDS.sleep(3);
-        findElement(SEARCH_BOX).clear();
+
     }
 
     public void webElementTest() throws InterruptedException {
-        WebElement element = findElement(SEARCH_BOX);
 
-        element.sendKeys("Testinium Eğitim");
-        TimeUnit.SECONDS.sleep(2);
-        element.submit();
+
         //element.clear();
     }
 
@@ -65,7 +61,7 @@ public class DemoPage extends BasePage {
     public void selectTest() throws InterruptedException {
         getDriver().navigate().to("https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html");
 
-        selectOptionByValue(SELECT_DATE, "Tuesday");
+       // selectOptionByValue(SELECT_DATE, "Tuesday");
 
         TimeUnit.SECONDS.sleep(2);
 
@@ -110,11 +106,4 @@ public class DemoPage extends BasePage {
         clickElement(By.cssSelector("#main div.w3-center a.w3-right"));
     }
 
-    public void search()
-    {
-
-        sendKeys(SEARCH_2BOX, "dolar");
-        findElement(SEARCH_2BOX).submit();
-
-    }
 }

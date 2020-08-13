@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 
 public class ConstantMainPage {
 
-    public static final By SEARCH_BOX = By.name("q");
-    public static final By SEARCH_2BOX=By.xpath("//input[@name=\"q\"]");
-
-
+    public static final By BUTTON_MLOGIN=By.cssSelector("#login");
+    public static final By BUTTON_HOVER=By.cssSelector("[href=\"javascript:;\"]");
 }

@@ -1,6 +1,6 @@
 package com.testinium.base;
 
-import com.testinium.page.DemoPage;
+import com.testinium.page.HomePage;
 import com.testinium.page.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +23,7 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 10);
+        this.wait = new WebDriverWait(driver, 15);
     }
 
     public WebElement findElement(By by) {
@@ -52,6 +52,7 @@ public class BasePage {
 
     public String getAttribute(By by, String name) {
         return findElement(by).getAttribute(name);
+
     }
 
     public void selectOptionByValue(By by, String value) {
@@ -71,7 +72,7 @@ public class BasePage {
 
     public void untilElementAppear(By by) {
         System.out.println("Elementin var olması bekleniyor...");
-        wait.until(ExpectedConditions.presenceOfElementLocated(by));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     public void untilElemetsAppear(By by)
@@ -102,11 +103,15 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public DemoPage getDemoPage() {
-        return new DemoPage(driver);
+    public HomePage getHomePage() {
+        return new HomePage(driver);
     }
 
     public LoginPage getLoginPage() {
         return new LoginPage(driver);
     }
+
+
+
+
 }
