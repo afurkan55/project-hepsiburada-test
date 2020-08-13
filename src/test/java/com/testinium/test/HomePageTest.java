@@ -4,25 +4,32 @@ import com.testinium.base.BasePage;
 import com.testinium.base.BaseTest;
 import com.testinium.page.HomePage;
 import com.testinium.page.LoginPage;
+import com.testinium.page.MenuPage;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import static com.testinium.constants.ConstantLoginPage.*;
+import org.openqa.selenium.WebElement;
 
+import static com.testinium.constants.ConstantLoginPage.*;
+import static com.testinium.constants.ConstantsMenuPage.MENU;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HomePageTest extends BaseTest {
 
     HomePage homePage;
     LoginPage loginPage;
+    MenuPage menuPage;
 
     @Before
     public void before() {
 
         homePage = new HomePage(getDriver());
         loginPage= new LoginPage(getDriver());
+        menuPage=new MenuPage(getDriver());
 
     }
     @Test
@@ -48,6 +55,13 @@ public class HomePageTest extends BaseTest {
 
         loginPageTest();
         loginPage.loginContol();
+    }
+
+    @Test
+    public void categoryTest() throws InterruptedException {
+        homePageTest();
+        menuPage.getMenuPage().randomItem();
+        menuPage.randomBrand();
     }
 
 

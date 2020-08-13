@@ -2,6 +2,7 @@ package com.testinium.base;
 
 import com.testinium.page.HomePage;
 import com.testinium.page.LoginPage;
+import com.testinium.page.MenuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -109,6 +110,10 @@ public class BasePage {
 
     public LoginPage getLoginPage() {
         return new LoginPage(driver);
+    }
+    public MenuPage getMenuPage()
+    {
+        return new MenuPage(driver);
     }
 
 

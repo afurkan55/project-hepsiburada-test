@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
     }
 
 
-    public LoginPage login() throws InterruptedException {
+    public MenuPage login() throws InterruptedException {
         hoverElement(BUTTON_MLOGIN);
         TimeUnit.SECONDS.sleep(3);
         clickElement(BUTTON_MLOGIN);
@@ -29,7 +29,7 @@ public class LoginPage extends BasePage {
         clickElement(BUTTON_LOGIN);
 
 
-        return this;
+        return getMenuPage();
     }
 
     public LoginPage loginContol()
